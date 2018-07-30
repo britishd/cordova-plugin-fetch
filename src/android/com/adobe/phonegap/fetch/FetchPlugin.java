@@ -32,7 +32,11 @@ public class FetchPlugin extends CordovaPlugin {
     public static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
 
     public static void main(String[] args) {
-        this.mClient.setConnectionPool(new ConnectionPool(200, 2 * 60 * 1000));
+        new FetchPlugin().run();
+    }
+
+    private void run() {
+        mClient.setConnectionPool(new ConnectionPool(200, 2 * 60 * 1000));
     }
 
     @Override
