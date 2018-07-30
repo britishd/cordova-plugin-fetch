@@ -36,7 +36,7 @@ public class FetchPlugin extends CordovaPlugin {
     }
 
     private void run() {
-        mClient.setConnectionPool(new ConnectionPool(200, 2 * 60 * 1000));
+        mClient.setConnectionPool(new ConnectionPool(200, 2000));
     }
 
     @Override
