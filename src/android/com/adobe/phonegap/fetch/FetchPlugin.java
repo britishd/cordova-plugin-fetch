@@ -24,7 +24,10 @@ public class FetchPlugin extends CordovaPlugin {
     public static final String LOG_TAG = "FetchPlugin";
     private static CallbackContext callbackContext;
 
-    private final OkHttpClient mClient = new OkHttpClient();
+    private final OkHttpClient mClient = new OkHttpClient.Builder()
+                                                .connectionPool(new ConnectionPool(200, 5L, TimeUnit.MINUTES)
+                                                .build();
+
     public static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
 
     @Override
