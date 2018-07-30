@@ -27,11 +27,14 @@ public class FetchPlugin extends CordovaPlugin {
     private static CallbackContext callbackContext;
 
     private final OkHttpClient mClient = new OkHttpClient();
-
-    mClient.setConnectionPool(new ConnectionPool(200, 2 * 60 * 1000));
+    private ConnectionPool connectionPool = new ConnectionPool(200, 2 * 60 * 1000);
 
 
     public static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
+
+    public static void main(String[] args) {
+        mClient.setConnectionPool(connectionPool);
+    }
 
     @Override
     public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext) {
